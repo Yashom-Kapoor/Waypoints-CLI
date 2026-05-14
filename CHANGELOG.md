@@ -19,6 +19,7 @@ Fixed:
 ## [0.7.1]
 Added:
 - `--force` flag for update
+
 Changed:
 - Layout of `help` response
 
@@ -30,6 +31,7 @@ Added:
 ## [0.6.5]
 Changed:
 - File structure, installer & repo simplicity
+
 Fixed:
 - `~` root navigation issue, replaced with `home`
 
@@ -37,6 +39,7 @@ Fixed:
 Changed:
 - Moved commands to `init.zsh`
 - Simpler installer
+
 Fixed:
 - File name mismatch bugs
 
@@ -49,6 +52,7 @@ Fixed:
 Added:
 - Context-aware tab completion
 - Root `~` navigation
+
 Fixed:
 - Items list formatting error
 
@@ -56,6 +60,7 @@ Fixed:
 Changed:
 - `add` requests file location as argument
 - `wp add` description updated
+
 Fixed:
 - Enter with no reply on prompt (now caught as "no" response)
 
@@ -72,6 +77,7 @@ Added:
 ## [0.5.5]
 Added:
 - Description for `wp <name>` routing 
+
 Fixed:
 - Uninstaller bug - subprocess errored due to relative/absolute location mismatch
 
