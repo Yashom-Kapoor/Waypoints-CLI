@@ -7,3 +7,8 @@ Lightweight CLI for saving and jumping between directories.
   `wp delete <name>`:  Remove saved waypoint \
   `wp list`:           Show all waypoints \
   `wp uninstall`:      Uninstall Waypoints CLI
+
+Unfortunately, this only works for macOS/Linux systems.
+
+To install:
+curl -sSL https://raw.githubusercontent.com/Yashom-Kapoor/Waypoints-CLI/main/install.sh | bash
