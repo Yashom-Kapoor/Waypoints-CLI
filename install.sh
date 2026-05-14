@@ -29,7 +29,7 @@ cp "$TMP_DIR/uninstall.sh" ~/.waypoints-cli/uninstall.sh
 
 # Add source line if not there already in zshrc
 if ! grep -q "waypoints.sh" ~/.zshrc; then
-    echo 'source ~/.waypoints/shell/waypoints.sh' >> ~/.zshrc
+    echo 'source ~/.waypoints-cli/shell/waypoints.sh' >> ~/.zshrc
 fi
 
 echo "Done. Restart terminal or run: source ~/.zshrc"
