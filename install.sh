@@ -33,7 +33,7 @@ cp "$TMP_DIR/init.zsh" ~/.waypoints-cli/config/init.zsh
 
 # Install init.zsh
 if ! grep -q "waypoints init" ~/.zshrc; then
-    echo "source ~/.waypoints/config/init.zsh  # waypoints init" >> ~/.zshrc
+    echo "source ~/.waypoints-cli/config/init.zsh  # waypoints init" >> ~/.zshrc
 fi
 
 echo "Done. Restart terminal or run: source ~/.zshrc"
