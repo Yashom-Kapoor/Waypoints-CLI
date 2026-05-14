@@ -93,6 +93,7 @@ Installations:
         print("  wp add <path> <name>   Save a directory")
         print("  wp <name>              Jump to a waypoint")
         print("  wp list                Show all waypoints")
+        print("")
         print("Learn more:")
         print("  wp help")
     elif command == "add":
