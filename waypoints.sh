@@ -6,7 +6,7 @@ wp() {
     status=$?
 
     # -d => if directory exists
-    if [ $status -eq 0] && [ -d "$result" ]; then
+    if [ $status -eq 0 ] && [ -d "$result" ]; then
         cd "$result"
     else
         echo "$result"

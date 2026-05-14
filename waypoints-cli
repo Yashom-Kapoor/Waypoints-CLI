@@ -92,6 +92,7 @@ Commands:
     elif command in db:
         print(db.get(name, ""))
         sys.exit(0) # 0 = shell should cd to this folder
+        return
 
     elif command == "uninstall":        
         reply = input("Are you sure you want to uninstall Waypoints CLI? (Y/N): ").strip()
