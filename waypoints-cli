@@ -24,6 +24,9 @@ def main():
     args = sys.argv[1:]
     db = load_db()
 
+    if (not db.items()):
+        db["~"] = os.path.expanduser("~")
+
     if len(args) == 0 or args[0] == "help":
         print("""
 Welcome to Waypoints CLI! :)
@@ -107,7 +110,7 @@ Commands:
     elif command == "stale":
         stale = []
 
-        for name, path in db.items:
+        for name, path in db.items():
             if not os.path.exists(path):
                 stale.append([name, path])
         
