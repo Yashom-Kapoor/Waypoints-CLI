@@ -8,7 +8,6 @@ Lightweight CLI for saving and jumping between directories.
   `wp list`:           Show all waypoints \
   `wp uninstall`:      Uninstall Waypoints CLI
 
-Unfortunately, this only works for macOS/Linux systems.
-
-To install:
-curl -sSL https://raw.githubusercontent.com/Yashom-Kapoor/Waypoints-CLI/main/install.sh | bash
+## Installation
+Unfortunately, this only works for macOS/Linux systems. \
+To install, run: `curl -sSL https://raw.githubusercontent.com/Yashom-Kapoor/Waypoints-CLI/main/install.sh | bash`
