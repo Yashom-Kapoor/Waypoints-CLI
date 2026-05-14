@@ -20,3 +20,16 @@ wp() {
         fi #End of if function
     fi
 }
+
+# Completion
+_wp() {
+    local completions
+
+    completions=("${(@f)$(
+        ~/.waypoints/bin/waypoints-cli __complete "${words[CURRENT]}"
+    )}")
+
+    compadd -a completions
+}
+
+compdef _wp wp

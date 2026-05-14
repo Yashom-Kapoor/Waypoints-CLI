@@ -119,6 +119,15 @@ Commands:
                 for pair in stale:
                     print(pair[0], "->", pair[1])
 
+    elif command == "__complete":
+        prefix = args[-1] if args else ""
+        options = list(db.keys())
+        
+        matches = [item for item in options if item.startswith(prefix)]
+
+        for match in matches:
+            print(match)
+
     elif command in db:
         print(db.get(command, ""))
         sys.exit(0) # 0 = shell should cd to this folder
