@@ -31,6 +31,7 @@ Author: Yashom Kapoor
 =====================================
 
 Commands:
+  <name>         Navigate to waypoint <name>
   add <name>     Save current directory as <name>
   get <name>     Print saved path
   delete <name>  Remove saved waypoint
