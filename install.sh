@@ -9,7 +9,7 @@ git clone https://github.com/Yashom-Kapoor/Waypoints-CLI "$TMP_DIR"
 
 TMP_DIR="$TMP_DIR/waypoints"
 
-# Create local bin, data, and shell folder if needed
+# Create necessary folders if needed
 mkdir -p ~/.waypoints-cli/bin
 mkdir -p ~/.waypoints-cli/data
 mkdir -p ~/.waypoints-cli/shell
@@ -32,6 +32,9 @@ cp "$TMP_DIR/uninstall.sh" ~/.waypoints-cli/uninstall.sh
 
 # Copy init
 cp "$TMP_DIR/init.zsh" ~/.waypoints-cli/config/init.zsh
+
+# Copy version
+cp "$TMP_DIR/VERSION" ~/.waypoints-cli/VERSION
 
 # Install init.zsh
 if ! grep -q "waypoints init" ~/.zshrc; then

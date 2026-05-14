@@ -4,6 +4,7 @@ import sys
 import json
 import os
 import subprocess
+import urllib.request
 
 DB_PATH = os.path.expanduser("~/.waypoints-cli/data/waypoints.json")
 COMMANDS = {"add", "get", "delete", "list", "help", "stale", "uninstall"}
@@ -20,6 +21,26 @@ def save_db(db):
     with open(DB_PATH, "w") as f:
         json.dump(db, f, indent=2)
 
+def get_version():
+    path = os.path.expanduser("~/.waypoints-cli/VERSION")
+    if not os.path.exists(path):
+        return "0.0.0"
+    return open(path).read().strip()
+
+def get_latest_version():
+    try:
+        url = "https://raw.githubusercontent.com/Yashom-Kapoor/Waypoints-CLI/main/waypoints/VERSION"
+        with urllib.request.urlopen(url) as response:
+            return response.read().decode().strip()
+    except Exception:
+        return "x.x.x"
+
+def update(latest_version):
+    INSTALL_CMD = "curl -sSL https://raw.githubusercontent.com/Yashom-Kapoor/Waypoints-CLI/main/install.sh | bash"
+    subprocess.run(INSTALL_CMD, shell=True)
+
+    print(f"Update complete. You are now on version {latest_version}")
+
 def main():
     args = sys.argv[1:]
     db = load_db()
@@ -29,11 +50,11 @@ def main():
         save_db(db)
 
     if len(args) == 0 or args[0] == "help":
-        print("""
+        print(f"""
 Welcome to Waypoints! :)
 Your lightweight CLI waypoint helper
 Author: Yashom Kapoor
-Version: 0.4.6
+Version: {get_version()}
 =====================================
 
 Waypoint Navigation:
@@ -52,15 +73,17 @@ Stale Paths:
   stale             List all stale paths
   stale -d          Delete all stale paths
 
+Info:
+  -v, --version     Show Waypoints CLI version
+
 Installations:
-  update            Update Waypoints CLI
-  uninstall         Uninstall Waypoints CLI
+  update            Update Waypoints
+  uninstall         Uninstall Waypoints
 """)
         sys.exit(67)
         return
     
     command = args[0]
-    print(command)
 
     if command == "add":
         if len(args) < 3:
@@ -140,6 +163,19 @@ Installations:
                 "Stale waypoints:"
                 for pair in stale:
                     print(pair[0], "->", pair[1])
+
+    elif command == "-v" or command == "--version":
+        current_version = get_version()
+        print(f"Waypoints {current_version}")
+
+    elif command == "update":
+        latest_version = get_latest_version()
+        current_version = get_version()
+        if (latest_version == current_version):
+            print("Already up to date.")
+        else:
+            print(f"Updating...")
+            update(latest_version)
 
     elif command == "__complete":
         prefix = args[2]
