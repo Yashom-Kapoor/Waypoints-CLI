@@ -4,6 +4,7 @@ echo "Installing Waypoints CLI..."
 
 # Make temp dir to install git repo
 TMP_DIR=$(mktemp -d)
+trap "rm -rf $TMP_DIR" EXIT # Guarantee uninstall temp dir
 git clone https://github.com/Yashom-Kapoor/Waypoints-CLI "$TMP_DIR"
 
 # Create local bin, data, and shell folder if needed
