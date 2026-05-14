@@ -11,6 +11,7 @@ git clone https://github.com/Yashom-Kapoor/Waypoints-CLI "$TMP_DIR"
 mkdir -p ~/.waypoints-cli/bin
 mkdir -p ~/.waypoints-cli/data
 mkdir -p ~/.waypoints-cli/shell
+mkdir -p ~/.waypoints-cli/config
 
 # Copy binary to bin
 cp "$TMP_DIR/waypoints-cli" ~/.waypoints-cli/bin/waypoints-cli
@@ -27,17 +28,12 @@ cp "$TMP_DIR/waypoints.sh" ~/.waypoints-cli/shell/waypoints.sh
 # Copy uninstall
 cp "$TMP_DIR/uninstall.sh" ~/.waypoints-cli/uninstall.sh
 
-# Remove previous .zshrc command and replace
-sed -i '' '/waypoints.sh/d' ~/.zshrc
-echo 'source ~/.waypoints-cli/shell/waypoints.sh' >> ~/.zshrc
+# Copy init
+cp "$TMP_DIR/init.zsh" ~/.waypoints-cli/config/init.zsh
 
-# Add compinit (completion helper)
-if ! grep -q "autoload -Uz compinit" ~/.zshrc; then
-    echo "autoload -Uz compinit" >> ~/.zshrc
-fi
-
-if ! grep -q "compinit" ~/.zshrc; then
-    echo "compinit" >> ~/.zshrc
+# Install init.zsh
+if ! grep -q "waypoints init" ~/.zshrc; then
+    echo "source ~/.waypoints/config/init.zsh  # waypoints init" >> ~/.zshrc
 fi
 
 echo "Done. Restart terminal or run: source ~/.zshrc"

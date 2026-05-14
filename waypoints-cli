@@ -32,7 +32,7 @@ def main():
 Welcome to Waypoints! :)
 Your lightweight CLI waypoint helper
 Author: Yashom Kapoor
-Version: 0.4.4
+Version: 0.4.3
 =====================================
 
 Commands:
