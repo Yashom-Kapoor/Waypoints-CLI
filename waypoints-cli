@@ -31,14 +31,14 @@ Author: Yashom Kapoor
 =====================================
 
 Commands:
-  <name>         Navigate to waypoint <name>
-  add <name>     Save current directory as <name>
-  get <name>     Print saved path
-  delete <name>  Remove saved waypoint
-  stale          List all stale paths
-  stale -d       Delete all stale paths
-  list           Show all waypoints
-  uninstall      Uninstall Waypoints CLI
+  <name>              Navigate to waypoint <name>
+  add <file> <name>   Save current directory as <name>
+  get <name>          Print saved path
+  delete <name>       Remove saved waypoint
+  stale               List all stale paths
+  stale -d            Delete all stale paths
+  list                Show all waypoints
+  uninstall           Uninstall Waypoints CLI
 """)
         sys.exit(67)
         return
@@ -46,14 +46,19 @@ Commands:
     command = args[0]
 
     if command == "add":
-        if len(args) == 1:
-            print("Usage: wp add <name>")
+        if len(args) < 3:
+            print("Usage: wp add <file> <name>")
             sys.exit(67)
             return
         
         name = args[1].strip().lower()
-        path = os.getcwd()
+        path = os.path.abspath(os.path.expanduser(args[2]))
 
+        if not os.path.exists(path):
+            print(f"Path does not exist: {path}")
+            sys.exit(67)
+            return
+            
         if name in RESERVED:
             print(f"'{name}' is a reserved command name. Choose a different waypoint name.")
             sys.exit(67)
@@ -62,7 +67,7 @@ Commands:
         if name in db:
             reply = input(f"{name} already exists. Replace it? (Y/N): ").strip()
 
-            if not reply[0].lower() == "y":
+            if not reply or reply[0].lower() != "y":
                 print("Cancelled")
                 sys.exit(67)
                 return
@@ -136,7 +141,7 @@ Commands:
     elif command == "uninstall":        
         reply = input("Are you sure you want to uninstall Waypoints CLI? (Y/N): ").strip()
 
-        if not reply[0].lower() == "y":
+        if not reply or reply[0].lower() != "y":
             print("Ok!")
             sys.exit(67)
             return
