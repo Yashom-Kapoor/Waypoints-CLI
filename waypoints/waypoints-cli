@@ -78,6 +78,7 @@ Info:
 
 Installations:
   update            Update Waypoints
+  update --force    Force update Waypoints
   uninstall         Uninstall Waypoints
 """)
         sys.exit(67)
@@ -171,6 +172,13 @@ Installations:
     elif command == "update":
         latest_version = get_latest_version()
         current_version = get_version()
+        if len(args) > 1:
+            if args[1] == "--force":
+                print(f"Force updating...")
+                update(latest_version)
+                sys.exit(67)
+                return
+        
         if (latest_version == current_version):
             print("Already up to date.")
         else:
