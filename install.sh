@@ -31,4 +31,13 @@ cp "$TMP_DIR/uninstall.sh" ~/.waypoints-cli/uninstall.sh
 sed -i '' '/waypoints.sh/d' ~/.zshrc
 echo 'source ~/.waypoints-cli/shell/waypoints.sh' >> ~/.zshrc
 
+# Add compinit (completion helper)
+if ! grep -q "autoload -Uz compinit" ~/.zshrc; then
+    echo "autoload -Uz compinit" >> ~/.zshrc
+fi
+
+if ! grep -q "compinit" ~/.zshrc; then
+    echo "compinit" >> ~/.zshrc
+fi
+
 echo "Done. Restart terminal or run: source ~/.zshrc"
