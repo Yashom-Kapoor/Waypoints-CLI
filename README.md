@@ -6,7 +6,8 @@ A lightweight CLI for saving and jumping between directories.
 
 ## Quick Start
 Add waypoint: \
-`wp add ~/path/to/your/favorite/directory my-favorite-dir`
+`wp add ~/path/to/your/favorite/directory my-favorite-dir` \
+`wp add ./relative/path other-dir`
 
 Navigate to waypoint: \
 `wp my-favorite-dir`
