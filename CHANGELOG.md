@@ -2,6 +2,12 @@
 
 All notable changes to Waypoints will be documented here.
 
+## [0.7.6]
+Added: 
+- `wp tour` for new users
+Changed:
+- Installation (`install.sh`) text for clarity
+
 ## [0.7.5]
 Changed:
 - Deployed Waypoints via Vercel!

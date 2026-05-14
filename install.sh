@@ -41,4 +41,10 @@ if ! grep -q "waypoints init" ~/.zshrc; then
     echo "source ~/.waypoints-cli/config/init.zsh  # waypoints init" >> ~/.zshrc
 fi
 
-echo "Done. Restart your terminal to apply changes."
+echo ""
+echo "✓ Waypoints installed successfully"
+echo "→ Restart your terminal to finish setup"
+echo ""
+echo "New to Waypoints? Start Here:"
+echo "  wp tour"
+echo ""
