@@ -1,0 +1,109 @@
+#!/usr/bin/env python3
+
+import sys
+import json
+import os
+import subprocess
+
+DB_PATH = os.path.expanduser("~/.waypoints-cli/data/waypoints.json")
+RESERVED = {"add", "get", "delete", "list", "help", "uninstall"}
+
+def load_db():
+    if not os.path.exists(DB_PATH):
+        return {}
+    with open(DB_PATH, "r") as f:
+        return json.load(f)
+    
+def save_db(db):
+    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+    with open(DB_PATH, "w") as f:
+        json.dump(db, f, indent=2)
+
+def main():
+    args = sys.argv[1:]
+    db = load_db()
+
+    if len(args) == 0 or args[0] == "help":
+        print("""
+Welcome to Waypoints CLI! :)
+Your lightweight CLI waypoint helper
+Author: Yashom Kapoor
+=====================================
+
+Commands:
+  add <name>     Save current directory as <name>
+  get <name>     Print saved path
+  delete <name>  Remove saved waypoint
+  list           Show all waypoints
+  uninstall      Uninstall Waypoints CLI
+""")
+        return
+    
+    command = args[0]
+
+    if command == "add":
+        if len(args) == 1:
+            print("Usage: wp add <name>")
+            return
+        
+        name = args[1].strip().lower()
+        path = os.getcwd()
+
+        if name in RESERVED:
+            print(f"'{name}' is a reserved command name. Choose a different waypoint name.")
+            return
+
+        if name in db:
+            reply = input(f"{name} already exists. Replace it? (Y/N): ").strip()
+
+            if not reply[0].lower() == "y":
+                print("Cancelled")
+                return
+
+        db[name] = path
+        save_db(db)
+
+        print(f"Saved {name} -> {path}")
+
+    elif command == "get":
+        if len(args) == 1:
+            print("Usage: wp get <name>")
+            return
+        
+        name = args[1]
+        print(db.get(name, "Not found"))
+
+    elif command == "list":
+        for k, v in db.items():
+            print (k, "->", v)
+
+    elif command == "delete":
+        if len(args) == 1:
+            print("Usage: wp delete <name>")
+            return
+
+        name = args[1]
+
+        if name in db:
+           del db[name]
+           save_db(db)
+           print(f"Deleted {name}")
+
+    elif command in db:
+        print(db.get(name, ""))
+
+    elif command == "uninstall":        
+        reply = input("Are you sure you want to uninstall Waypoints CLI? (Y/N): ").strip()
+
+        if not reply[0].lower() == "y":
+            print("Ok!")
+            return
+        else:
+            subprocess.run(["bash", "~/.waypoints-cli/uninstall.sh"])
+
+    else:
+        print("Unknown command")
+
+
+if __name__ == "__main__":
+    main()
