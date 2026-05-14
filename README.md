@@ -1,6 +1,6 @@
 # Waypoints
 
-**Version: 0.5.2**
+**Version: 0.5.3**
 
 A lightweight CLI for saving and jumping between directories.
 
@@ -18,7 +18,8 @@ A lightweight CLI for saving and jumping between directories.
 
 ### Utility:
 
-  `list`:              Show all waypoints
+  `list`:              Show all waypoints \
+  `list -n`:           Show all waypoint names
 
 ### Stale Paths:
 

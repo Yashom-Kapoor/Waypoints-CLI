@@ -68,7 +68,8 @@ Waypoint Modification:
   delete <name>     Remove saved waypoint
 
 Utility:
-  list              Show all waypoints
+  list              Show all waypoint names
+  list -l           Show detailed view (name -> path)
 
 Stale Paths:
   stale             List all stale paths
@@ -129,8 +130,20 @@ Installations:
         print(db.get(name, "Not found"))
 
     elif command == "list":
-        for k, v in db.items():
-            print (k, "->", v)
+        name_only = True
+        if len(args) > 1:
+            if args[1] == '-l':
+                name_only = False
+
+        items = list(db.items())
+        items.sort(key=lambda x: (x[0] != "home", x[0]))
+
+        if name_only:
+            names = [k for k, _ in items]
+            print("  ".join(names))
+        else:
+            for k, v in items:
+                print (k, "->", v)
 
     elif command == "delete":
         if len(args) == 1:
