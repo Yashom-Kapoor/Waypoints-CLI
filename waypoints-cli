@@ -24,31 +24,43 @@ def main():
     args = sys.argv[1:]
     db = load_db()
 
-    if (not db.items()):
-        db["~"] = os.path.expanduser("~")
+    if not "home" in db.items():
+        db["home"] = os.path.expanduser("~")
+        save_db(db)
 
     if len(args) == 0 or args[0] == "help":
         print("""
 Welcome to Waypoints! :)
 Your lightweight CLI waypoint helper
 Author: Yashom Kapoor
-Version: 0.4.5
+Version: 0.4.6
 =====================================
 
-Commands:
-  <name>              Navigate to waypoint <name>
-  add <path> <name>   Save current directory as <name>
-  get <name>          Print saved path
-  delete <name>       Remove saved waypoint
-  stale               List all stale paths
-  stale -d            Delete all stale paths
-  list                Show all waypoints
-  uninstall           Uninstall Waypoints CLI
+Waypoint Navigation:
+  <name>            Navigate to waypoint <name>
+  home              Navigate to home (~)
+
+Waypoint Modification:
+  add <path> <name> Save a directory as <name>
+  get <name>        Print saved path
+  delete <name>     Remove saved waypoint
+
+Utility:
+  list              Show all waypoints
+
+Stale Paths:
+  stale             List all stale paths
+  stale -d          Delete all stale paths
+
+Installations:
+  update            Update Waypoints CLI
+  uninstall         Uninstall Waypoints CLI
 """)
         sys.exit(67)
         return
     
     command = args[0]
+    print(command)
 
     if command == "add":
         if len(args) < 3:
