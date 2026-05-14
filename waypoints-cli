@@ -96,6 +96,27 @@ Commands:
            save_db(db)
            print(f"Deleted {name}")
 
+    elif command == "stale":
+        stale = []
+
+        for name, path in db.items:
+            if not os.path.exists(path):
+                stale.append([name, path])
+        
+        if "-d" in args:
+            for pair in stale:
+                del db[pair[0]]
+            save_db(db)
+            print(f"Deleted {len(stale)} stale waypoints")
+
+        else:
+            if not stale:
+                print("No stale waypoints")
+            else:
+                "Stale waypoints:"
+                for pair in stale:
+                    print(pair[0], "->", pair[1])
+
     elif command in db:
         print(db.get(command, ""))
         sys.exit(0) # 0 = shell should cd to this folder
