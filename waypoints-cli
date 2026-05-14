@@ -6,7 +6,8 @@ import os
 import subprocess
 
 DB_PATH = os.path.expanduser("~/.waypoints-cli/data/waypoints.json")
-RESERVED = {"add", "get", "delete", "list", "help", "stale", "uninstall"}
+COMMANDS = {"add", "get", "delete", "list", "help", "stale", "uninstall"}
+RESERVED = COMMANDS
 
 def load_db():
     if not os.path.exists(DB_PATH):
@@ -32,7 +33,7 @@ Author: Yashom Kapoor
 
 Commands:
   <name>              Navigate to waypoint <name>
-  add <file> <name>   Save current directory as <name>
+  add <path> <name>   Save current directory as <name>
   get <name>          Print saved path
   delete <name>       Remove saved waypoint
   stale               List all stale paths
@@ -47,12 +48,12 @@ Commands:
 
     if command == "add":
         if len(args) < 3:
-            print("Usage: wp add <file> <name>")
+            print("Usage: wp add <path> <name>")
             sys.exit(67)
             return
         
-        name = args[1].strip().lower()
-        path = os.path.abspath(os.path.expanduser(args[2]))
+        name = args[2].strip().lower()
+        path = os.path.abspath(os.path.expanduser(args[1]))
 
         if not os.path.exists(path):
             print(f"Path does not exist: {path}")
@@ -125,8 +126,14 @@ Commands:
                     print(pair[0], "->", pair[1])
 
     elif command == "__complete":
-        prefix = args[-1] if args else ""
-        options = list(db.keys())
+        prefix = args[2]
+        prefix = prefix.strip().lower()
+        command = args[1]
+
+        if (command == "get" or command == "delete"):
+            options = list(db.keys())
+        else:
+            options = list(db.keys()) + list(COMMANDS)
         
         matches = [item for item in options if item.startswith(prefix)]
 
