@@ -1,6 +1,6 @@
 # Waypoints
 
-**Version: 0.7.4**
+**Version: 0.7.5**
 
 A lightweight CLI for saving and jumping between directories.
 
@@ -38,7 +38,7 @@ Navigate back to `~`: \
 Supports macOS/Linux systems.
 
 To install, run: \
-`curl -sSL https://raw.githubusercontent.com/Yashom-Kapoor/Waypoints-CLI/main/install.sh | bash` \
+`curl -sSL waypoints-cli.vercel.app/install | bash` \
 Restart your terminal upon completion. 
 
 ## Welcome to Waypoints!

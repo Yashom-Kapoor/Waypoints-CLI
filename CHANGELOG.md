@@ -2,6 +2,11 @@
 
 All notable changes to Waypoints will be documented here.
 
+## [0.7.5]
+Changed:
+- Deployed Waypoints via Vercel!
+- Now installable via `waypoints-cli.vercel.app/install`
+
 ## [0.7.4]
 Added:
 - Changelog
