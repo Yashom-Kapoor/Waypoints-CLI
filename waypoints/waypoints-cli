@@ -51,6 +51,7 @@ def main():
 
     if len(args) == 0 or args[0] == "help":
         print(f"""
+=====================================
 Welcome to Waypoints! :)
 Your lightweight CLI waypoint helper
 Author: Yashom Kapoor
