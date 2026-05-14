@@ -37,6 +37,7 @@ Commands:
   list           Show all waypoints
   uninstall      Uninstall Waypoints CLI
 """)
+        sys.exit(67)
         return
     
     command = args[0]
@@ -44,6 +45,7 @@ Commands:
     if command == "add":
         if len(args) == 1:
             print("Usage: wp add <name>")
+            sys.exit(67)
             return
         
         name = args[1].strip().lower()
@@ -51,6 +53,7 @@ Commands:
 
         if name in RESERVED:
             print(f"'{name}' is a reserved command name. Choose a different waypoint name.")
+            sys.exit(67)
             return
 
         if name in db:
@@ -58,6 +61,7 @@ Commands:
 
             if not reply[0].lower() == "y":
                 print("Cancelled")
+                sys.exit(67)
                 return
 
         db[name] = path
@@ -68,6 +72,7 @@ Commands:
     elif command == "get":
         if len(args) == 1:
             print("Usage: wp get <name>")
+            sys.exit(67)
             return
         
         name = args[1]
@@ -80,6 +85,7 @@ Commands:
     elif command == "delete":
         if len(args) == 1:
             print("Usage: wp delete <name>")
+            sys.exit(67)
             return
 
         name = args[1]
@@ -90,7 +96,7 @@ Commands:
            print(f"Deleted {name}")
 
     elif command in db:
-        print(db.get(name, ""))
+        print(db.get(command, ""))
         sys.exit(0) # 0 = shell should cd to this folder
         return
 
@@ -99,6 +105,7 @@ Commands:
 
         if not reply[0].lower() == "y":
             print("Ok!")
+            sys.exit(67)
             return
         else:
             subprocess.run(["bash", "~/.waypoints-cli/uninstall.sh"])
