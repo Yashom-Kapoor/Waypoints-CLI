@@ -5,6 +5,8 @@ Lightweight CLI for saving and jumping between directories.
   `wp add <name>`:     Save current directory as <name> \
   `wp get <name>`:     Print saved path \
   `wp delete <name>`:  Remove saved waypoint \
+  `wp stale`:          List all stale paths \
+  `wp stale -d`:       Delete all stale paths \
   `wp list`:           Show all waypoints \
   `wp uninstall`:      Uninstall Waypoints CLI
 

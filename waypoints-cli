@@ -35,6 +35,8 @@ Commands:
   add <name>     Save current directory as <name>
   get <name>     Print saved path
   delete <name>  Remove saved waypoint
+  stale          List all stale paths
+  stale -d       Delete all stale paths
   list           Show all waypoints
   uninstall      Uninstall Waypoints CLI
 """)
