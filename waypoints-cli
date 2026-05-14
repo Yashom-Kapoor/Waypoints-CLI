@@ -6,7 +6,7 @@ import os
 import subprocess
 
 DB_PATH = os.path.expanduser("~/.waypoints-cli/data/waypoints.json")
-RESERVED = {"add", "get", "delete", "list", "help", "uninstall"}
+RESERVED = {"add", "get", "delete", "list", "help", "stale", "uninstall"}
 
 def load_db():
     if not os.path.exists(DB_PATH):
