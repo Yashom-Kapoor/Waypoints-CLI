@@ -39,7 +39,7 @@ _wp() {
     fi
 
     completions=("${(@f)$(
-        ~/.waypoints/bin/waypoints-cli __complete "$command" "${words[CURRENT]}"
+        ~/.waypoints-cli/bin/waypoints-cli __complete "$command" "${words[CURRENT]}"
     )}")
 
     compadd -a completions
