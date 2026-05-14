@@ -1,6 +1,8 @@
 # Waypoints
+
+**Version: 0.4.5**
+
 A lightweight CLI for saving and jumping between directories.
-Version: 0.4.5
 
 ## Commands
   `wp add <path> <name>`:     Save current directory as <name> \
@@ -12,5 +14,6 @@ Version: 0.4.5
   `wp uninstall`:      Uninstall Waypoints CLI
 
 ## Installation
-Unfortunately, this only works for macOS/Linux systems. \
+Unfortunately, this only works for macOS/Linux systems.
+
 To install, run: `curl -sSL https://raw.githubusercontent.com/Yashom-Kapoor/Waypoints-CLI/main/install.sh | bash`
