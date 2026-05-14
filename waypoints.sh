@@ -18,4 +18,5 @@ wp() {
         else
             echo "$result"
         fi #End of if function
+    fi
 }
