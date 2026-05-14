@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Waypoints CLI will be documented here.
+All notable changes to Waypoints will be documented here.
 
 ## [0.7.4]
 Added:
