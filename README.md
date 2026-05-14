@@ -1,6 +1,6 @@
 # Waypoints
 
-**Version: 0.4.5**
+**Version: 0.4.6**
 
 A lightweight CLI for saving and jumping between directories.
 
