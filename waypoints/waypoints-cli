@@ -89,17 +89,12 @@ Installations:
     command = args[0]
 
     if command == "tour":
-        print("")
-        print("Welcome to Waypoints 👋")
-        print("")
         print("Get started:")
         print("  wp add <path> <name>   Save a directory")
         print("  wp <name>              Jump to a waypoint")
         print("  wp list                Show all waypoints")
-        print("")
         print("Learn more:")
         print("  wp help")
-        print("")
     elif command == "add":
         if len(args) < 3:
             print("Usage: wp add <path> <name>")
