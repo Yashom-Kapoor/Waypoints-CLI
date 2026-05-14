@@ -175,7 +175,6 @@ Installations:
         current_version = get_version()
         if len(args) > 1:
             if args[1] == "--force":
-                print(f"Force updating...")
                 update(latest_version)
                 sys.exit(67)
                 return
@@ -183,7 +182,6 @@ Installations:
         if (latest_version == current_version):
             print("Already up to date.")
         else:
-            print(f"Updating...")
             update(latest_version)
 
     elif command == "__complete":
