@@ -4,39 +4,42 @@
 
 A lightweight CLI for saving and jumping between directories.
 
-## Commands
-### Waypoint Navigation:
+## Quick Start
+Add waypoint: \
+`wp add ~/path/to/your/favorite/directory my-favorite-dir`
 
-  `<name>`:            Navigate to waypoint <name> \
-  `home`:              Navigate to home (~)
+Navigate to waypoint: \
+`wp my-favorite-dir`
 
-### Waypoint Modification:
+See all your waypoints: \
+`wp list`
 
-  `add <path> <name>`: Save a directory as <name> \
-  `get <name>`:        Print saved path \
-  `delete <name>`:     Remove saved waypoint
+Navigate back to `~`: \
+`wp home`
 
-### Utility:
+## Core Commands
+### Navigation:
 
-  `list`:              Show all waypoints \
-  `list -n`:           Show all waypoint names
+  `wp <name>`: Jump to waypoint \
+  `wp home`: Go to `~`
 
-### Stale Paths:
+### Manage waypoints:
 
-  `stale`:             List all stale paths \ 
-  `stale -d`:          Delete all stale paths
+  `wp add <path> <name>` \
+  `wp get <name>` \
+  `wp delete <name>` \
+  `wp list`
 
-### Info:
-
-  `-v`, `--version`:     Show Waypoints CLI version
-
-### Installations:
-
-  `update`:            Update Waypoints \
-  `update --force`:    Force update Waypoints \
-  `uninstall`:         Uninstall Waypoints
+### Utilities:
+  `wp stale`: Find broken paths \
+  `wp update`, `wp uninstall`
 
 ## Installation
-Unfortunately, this only works for macOS/Linux systems.
+Supports macOS/Linux systems.
 
-To install, run: `curl -sSL https://raw.githubusercontent.com/Yashom-Kapoor/Waypoints-CLI/main/install.sh | bash`
+To install, run: \
+`curl -sSL https://raw.githubusercontent.com/Yashom-Kapoor/Waypoints-CLI/main/install.sh | bash` \
+Restart your terminal upon completion. 
+
+## Welcome to Waypoints!
+Happy jumping :)
