@@ -108,7 +108,7 @@ Commands:
             sys.exit(67)
             return
         else:
-            subprocess.run(["bash", "~/.waypoints-cli/uninstall.sh"])
+            subprocess.run(["bash", os.path.expanduser("~/.waypoints-cli/uninstall.sh")])
 
     else:
         print("Unknown command")
