@@ -1,8 +1,8 @@
-# Waypoints CLI
-Lightweight CLI for saving and jumping between directories.
+# Waypoints
+A lightweight CLI for saving and jumping between directories.
 
 ## Commands
-  `wp add <name>`:     Save current directory as <name> \
+  `wp add <path> <name>`:     Save current directory as <name> \
   `wp get <name>`:     Print saved path \
   `wp delete <name>`:  Remove saved waypoint \
   `wp stale`:          List all stale paths \
