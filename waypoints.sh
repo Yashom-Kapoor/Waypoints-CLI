@@ -13,7 +13,7 @@ wp() {
         exit_code=$? # Exit cocde to determine cd or not
 
         # -d => if directory exists
-        if [ $status -eq 0 ] && [ -d "$result" ]; then
+        if [ $exit_code -eq 0 ] && [ -d "$result" ]; then
             cd "$result"
         else
             echo "$result"
