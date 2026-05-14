@@ -41,4 +41,4 @@ if ! grep -q "waypoints init" ~/.zshrc; then
     echo "source ~/.waypoints-cli/config/init.zsh  # waypoints init" >> ~/.zshrc
 fi
 
-echo "Done. Restart terminal or run: source ~/.zshrc"
+echo "Done. Restart your terminal to apply changes."

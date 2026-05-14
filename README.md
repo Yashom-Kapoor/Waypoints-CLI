@@ -1,17 +1,39 @@
 # Waypoints
 
-**Version: 0.4.7**
+**Version: 0.5.1**
 
 A lightweight CLI for saving and jumping between directories.
 
 ## Commands
-  `wp add <path> <name>`:     Save current directory as <name> \
-  `wp get <name>`:     Print saved path \
-  `wp delete <name>`:  Remove saved waypoint \
-  `wp stale`:          List all stale paths \
-  `wp stale -d`:       Delete all stale paths \
-  `wp list`:           Show all waypoints \
-  `wp uninstall`:      Uninstall Waypoints CLI
+### Waypoint Navigation:
+
+  `<name>`:            Navigate to waypoint <name> \
+  `home`:              Navigate to home (~)
+
+### Waypoint Modification:
+
+  `add <path> <name>`: Save a directory as <name> \
+  `get <name>`:        Print saved path \
+  `delete <name>`:     Remove saved waypoint
+
+### Utility:
+
+  `list`:              Show all waypoints
+
+### Stale Paths:
+
+  `stale`:             List all stale paths \ 
+  `stale -d`:          Delete all stale paths
+
+### Info:
+
+  `-v`, `--version`:     Show Waypoints CLI version
+
+### Installations:
+
+  `update`:            Update Waypoints \
+  `update --force`:    Force update Waypoints \
+  `uninstall`:         Uninstall Waypoints
 
 ## Installation
 Unfortunately, this only works for macOS/Linux systems.
