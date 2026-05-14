@@ -7,6 +7,8 @@ TMP_DIR=$(mktemp -d)
 trap "rm -rf $TMP_DIR" EXIT # Guarantee uninstall temp dir
 git clone https://github.com/Yashom-Kapoor/Waypoints-CLI "$TMP_DIR"
 
+TMP_DIR="$TMP_DIR/waypoints"
+
 # Create local bin, data, and shell folder if needed
 mkdir -p ~/.waypoints-cli/bin
 mkdir -p ~/.waypoints-cli/data
