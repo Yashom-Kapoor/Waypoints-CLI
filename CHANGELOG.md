@@ -2,6 +2,10 @@
 
 All notable changes to Waypoints will be documented here.
 
+## [0.7.7]
+Added:
+- `wp rename` to rename a waypoint from <old_name> -> <new_name>
+
 ## [0.7.6]
 Added: 
 - `wp tour` for new users

@@ -137,6 +137,21 @@ Installations:
         name = args[1]
         print(db.get(name, "Not found"))
 
+    elif command == "rename":
+        if len(args) < 3:
+            print("Usage: wp rename <old_name> <new_name>")
+            sys.exit(67)
+            return
+        
+        old_name = args[1]
+        new_name = args[2]
+        if (db.get(old_name)):
+            db[new_name] = db.pop(old_name)
+            save_db(db)
+            print("Renamed: ", old_name, " -> ", new_name)
+        else:
+            print("Not found")
+    
     elif command == "list":
         name_only = True
         if len(args) > 1:
@@ -210,7 +225,7 @@ Installations:
         prefix = prefix.strip().lower()
         command = args[1]
 
-        if (command == "get" or command == "delete"):
+        if (command == "get" or command == "delete" or command == "rename"):
             options = list(db.keys())
         else:
             options = list(db.keys()) + list(COMMANDS)
